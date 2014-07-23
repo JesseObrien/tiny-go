@@ -32,7 +32,15 @@ func TestMany(t *testing.T) {
 	}
 }
 
-func BenchmarkTiny(b *testing.B) {
+func BenchmarkTinyTo(b *testing.B) {
+	tiny := getTiny()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		tiny.To(i)
+	}
+}
+
+func BenchmarkTinyFrom(b *testing.B) {
 	tiny := getTiny()
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
